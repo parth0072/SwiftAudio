@@ -120,7 +120,7 @@ public class DefaultAudioItemTimePitching: DefaultAudioItem, TimePitching {
     
     public var pitchAlgorithmType: AVAudioTimePitchAlgorithm
     
-    public override init(audioUrl: String, artist: String?, title: String?, albumTitle: String?, sourceType: SourceType, artwork: UIImage?) {
+    public override init(audioUrl: String, artist: String?, title: String?, albumTitle: String?, sourceType: SourceType, artwork: UIImage?,albumImage:String? = nil,songId:String = "",artistId:String? = nil) {
         self.pitchAlgorithmType = AVAudioTimePitchAlgorithm.lowQualityZeroLatency
         super.init(audioUrl: audioUrl, artist: artist, title: title, albumTitle: albumTitle, sourceType: sourceType, artwork: artwork)
     }
@@ -140,7 +140,7 @@ public class DefaultAudioItemInitialTime: DefaultAudioItem, InitialTiming {
     
     public var initialTime: TimeInterval
     
-    public override init(audioUrl: String, artist: String?, title: String?, albumTitle: String?, sourceType: SourceType, artwork: UIImage?) {
+    public override init(audioUrl: String, artist: String?, title: String?, albumTitle: String?, sourceType: SourceType, artwork: UIImage?,albumImage:String? = nil,songId:String = "",artistId:String? = nil) {
         self.initialTime = 0.0
         super.init(audioUrl: audioUrl, artist: artist, title: title, albumTitle: albumTitle, sourceType: sourceType, artwork: artwork)
     }
@@ -161,7 +161,7 @@ public class DefaultAudioItemAssetOptionsProviding: DefaultAudioItem, AssetOptio
     
     public var options: [String: Any]
     
-    public override init(audioUrl: String, artist: String?, title: String?, albumTitle: String?, sourceType: SourceType, artwork: UIImage?) {
+    public override init(audioUrl: String, artist: String?, title: String?, albumTitle: String?, sourceType: SourceType, artwork: UIImage?,albumImage:String? = nil,songId:String = "",artistId:String? = nil) {
         self.options = [:]
         super.init(audioUrl: audioUrl, artist: artist, title: title, albumTitle: albumTitle, sourceType: sourceType, artwork: artwork)
     }
