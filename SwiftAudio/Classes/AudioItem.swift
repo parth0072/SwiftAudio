@@ -20,6 +20,9 @@ public protocol AudioItem {
     func getTitle() -> String?
     func getAlbumTitle() -> String?
     func getSourceType() -> SourceType
+    func getSongId() -> String
+    func getArtistId() -> String?
+    func getAlbumImage() -> String?
     func getArtwork(_ handler: @escaping (UIImage?) -> Void)
     
 }
@@ -45,6 +48,12 @@ public class DefaultAudioItem: AudioItem {
     
     public var audioUrl: String
     
+    public var albumImage: String?
+    
+    public var artistId: String?
+    
+    public var songId:String!
+    
     public var artist: String?
     
     public var title: String?
@@ -55,13 +64,28 @@ public class DefaultAudioItem: AudioItem {
     
     public var artwork: UIImage?
     
-    public init(audioUrl: String, artist: String? = nil, title: String? = nil, albumTitle: String? = nil, sourceType: SourceType, artwork: UIImage? = nil) {
+    public init(audioUrl: String, artist: String? = nil, title: String? = nil, albumTitle: String? = nil, sourceType: SourceType, artwork: UIImage? = nil,albumImage:String? = nil,songId:String = "",artistId:String? = nil) {
         self.audioUrl = audioUrl
         self.artist = artist
         self.title = title
         self.albumTitle = albumTitle
         self.sourceType = sourceType
         self.artwork = artwork
+        self.albumImage = albumImage
+        self.songId = songId
+        self.artistId = artistId
+    }
+    
+    public func getSongId() -> String {
+        return songId
+    }
+    
+    public func getArtistId() -> String? {
+        return artistId
+    }
+    
+    public func getAlbumImage() -> String? {
+        return albumImage
     }
     
     public func getSourceUrl() -> String {
@@ -89,6 +113,7 @@ public class DefaultAudioItem: AudioItem {
     }
     
 }
+
 
 /// An AudioItem that also conforms to the `TimePitching`-protocol
 public class DefaultAudioItemTimePitching: DefaultAudioItem, TimePitching {
