@@ -163,7 +163,7 @@ public class QueuedAudioPlayer: AudioPlayer {
      - parameter toIndex: The index to move the item to.
      - throws: `APError.QueueError`
      */
-    func moveItem(fromIndex: Int, toIndex: Int) throws {
+    public func moveItem(fromIndex: Int, toIndex: Int) throws {
         try queueManager.moveItem(fromIndex: fromIndex, toIndex: toIndex)
     }
     
