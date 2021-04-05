@@ -232,4 +232,7 @@ class QueueManager<T> {
         _items.removeAll()
     }
 
+    public func removeAllIteam() {
+        _items.removeAll()
+    }
 }

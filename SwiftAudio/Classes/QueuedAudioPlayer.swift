@@ -181,6 +181,11 @@ public class QueuedAudioPlayer: AudioPlayer {
         queueManager.removePreviousItems()
     }
     
+    public func updateQueue(items: [AudioItem]) {
+        queueManager.removeAllIteam()
+        queueManager.addItems(items)
+    }
+    
     // MARK: - AVPlayerWrapperDelegate
     
     override func AVWrapperItemDidPlayToEndTime() {
